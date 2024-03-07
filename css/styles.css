@@ -1,0 +1,79 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    display:flex; 
+    flex-direction:column; 
+    justify-content:center;
+    min-height:100vh;       
+}
+
+/* Header styles */
+header {
+    background-color: #4634e4;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 6%;
+}
+
+/* Form styles */
+.violation-form {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 50px solid #ccc;
+    border-radius: 5px;
+    display:flex; 
+    flex-direction:column; 
+    justify-content:center;
+}
+
+.violation-form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.violation-form input,
+.violation-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.violation-form button {
+    background-color: #04AA6D;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Footer styles */
+footer {
+    background-color: #4634e4;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: white;
+    margin-left: 10px;
+    text-decoration: none;
+    margin: 20px;
+}

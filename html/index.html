@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highway Traffic Act Violation Processing Program</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+</head>
+<body>
+
+<header>
+    <img src="https://www.ontariocourts.ca/ocj/wp-content/uploads/2023/05/ocjlogo.png">
+    <h1>Highway Traffic Act Violation Processing Program</h1>
+</header>
+
+<main>
+    <form class="violation-form" id="trafficForm">
+        <label for="driverName">Driver's Name:</label>
+        <input type="text" id="driverName" name="driverName" required>
+
+        <label for="licenseNumber">Driver's License Number:</label>
+        <input type="text" id="licenseNumber" name="licenseNumber" required>
+
+        <button type="submit">Submit</button>
+
+    </form>
+    <div class="violation-form" id="output" style="display: none;"></div>
+</main>
+
+<footer>
+    &copy; Highway Traffic Act Violation Processing Program
+    <a href="#">Privacy Policy</a>
+    <a href="#">Contact Us</a>
+</footer>
+<script src="../js/myScript.js"></script>
+</body>
+</html>
