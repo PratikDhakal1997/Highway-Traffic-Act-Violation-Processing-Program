@@ -6,6 +6,7 @@
     <title>Highway Traffic Act Violation Processing Program</title>
     <link rel="stylesheet" href="../css/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
     
 </head>
 <body>
@@ -16,17 +17,20 @@
 </header>
 
 <main>
+    
     <form class="violation-form" id="trafficForm">
+         
         <label for="driverName">Driver's Name:</label>
         <input type="text" id="driverName" name="driverName" required>
 
         <label for="licenseNumber">Driver's License Number:</label>
         <input type="text" id="licenseNumber" name="licenseNumber" required>
+        <span id="errorDriverName" class="error-message"></span></br>
 
         <button type="submit">Submit</button>
 
     </form>
-    <div class="violation-form" id="output" style="display: none;"></div>
+    <div class="ticket-container" id="output" style="display: none;"></div>
 </main>
 
 <footer>

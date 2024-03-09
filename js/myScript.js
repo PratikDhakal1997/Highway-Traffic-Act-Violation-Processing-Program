@@ -16,18 +16,75 @@ document.getElementById("trafficForm").addEventListener("submit", function(event
   const licenseNumber = document.getElementById("licenseNumber").value;
 
   //validation.
+  // License Number Validation
+  if (/^[0-9]{15}$/.test(licenseNumber) == false) {
+    document.getElementById("errorDriverName").innerHTML = "Please enter a valid 15-digit license number."; 
+    return false;
 
-  //form hide
-  document.getElementById("trafficForm").style.display="none";
-  document.getElementById("output").style.display="block";
-
-
-  // Randomly select validity
+  }
+  else{
+    //form hide
+    document.getElementById("trafficForm").style.display="none";
+    document.getElementById("output").style.display="block";
+  }
   
-  const licenseValidity = Math.random() < 0.5 ? "Valid" : "Invalid";
-  const permitValidity = Math.random() < 0.5 ? "Valid" : "Invalid";
-  const insuranceValidity = Math.random() < 0.5 ? "Valid" : "Invalid";
-  const seatBelt = Math.random() < 0.5 ? "yes" : "no";
+  // Offences
+  const offences = [{
+    name: "Speeding",
+    section: "Schedule B Highway Traffic Act Speeding",
+    fine: 85,
+    warning: "-",
+    courtApperance: "Yes"
+  }];
+  const offencesIndex = [];// To check if the offence is already selected   
+  // Randomly select other offences
+  const offencesList = [
+    {
+      name: " Invalid Driver's Permit",
+      section: "23(3)",
+      fine: 175,
+      warning: "-",
+      courtApperance: "Yes"
+    },
+    {
+      name: "Invalid Liscence",
+      section: "32(1)",
+      fine: 260,
+      warning: "-",
+      courtApperance: "Yes"
+    },
+    {
+      name: "SeatBelt OFF",
+      section: "32(1)",
+      fine: 260,
+      warning: "-",
+      courtApperance: "Yes"
+    },
+    {
+      name: "Invalid Insurance",
+      section: "32(1)",
+      fine: 175,
+      warning: "-",
+      courtApperance: "Yes"
+    }
+    
+  ];
+
+
+  // Randomly choose offences from the list
+  var randomWaring ;
+  const numOfOffences = Math.floor(Math.random() * offencesList.length) + 1;
+  for (let i = 0; i < numOfOffences; i++) {
+    const randomIndex = Math.floor(Math.random() * offencesList.length);
+    if(!offencesIndex.includes(randomIndex)){
+      offences.push(offencesList[randomIndex]);
+      offencesIndex.push(randomIndex);
+    }
+  }
+  randomWaring=Math.floor(Math.random() * offences.length);
+  offences[randomWaring].warning="Warning";
+  offences[randomWaring].courtApperance="No";
+  offences[randomWaring].fine=0;
 
   // Date and time
   const dateTime = new Date().toLocaleString();
@@ -35,30 +92,34 @@ document.getElementById("trafficForm").addEventListener("submit", function(event
   // Generate ticket number (random number)
   const ticketNumber = Math.floor(Math.random() * 10000);
 
-  // Offences
-  const offences = [];
-  if (seatBelt === "no") {
-    offences.push({
-      name: "Seat Belt Violation",
-      section: "Section 106(2)",
-      fine: "$200",
-      warning: false
+  // Calculate total fine
+  let totalFine = 0;
+    offences.forEach(offence => {
+        totalFine += offence.fine;
     });
-  }
+  // output
+  let modalContent= `<h3>Ticket Info</h1>`;
+  modalContent += `<p>Driver Name: ${name}</p>`;
+  modalContent += `<p>Driver's License Number:: ${licenseNumber}</p>`;
+  modalContent += `<p>Date & time: ${dateTime}</p>`;
+  modalContent += `<p>Ticket Number:: ${ticketNumber}</p>`;
+  modalContent+= `<table><tr><th>S.N</th><th>Offence Name</th><th>Section Number</th>`+
+                `<th>Warning Status</th><th>Court Appearance</th><th>Fine Amount</th></tr>`;
 
-  // Output
-  let output = `<strong>Speeding:</strong> ${speedingValue}<br>`;
-  output += `<strong>Date and Time:</strong> ${dateTime}<br>`;
-  output += `<strong>Ticket Number:</strong> ${ticketNumber}<br>`;
-  output += `<strong>Driver's Name:</strong> ${name}<br>`;
-  output += `<strong>Driver's License Insurance:</strong> ${insuranceValidity}<br>`;
-  output += `<strong>Driver's License Permit:</strong> ${permitValidity}<br>`;
-  output += `<strong>Driver's License :</strong> ${licenseValidity}<br>`;
-  output += `<strong>Driver's License Number:</strong> ${licenseNumber}<br>`;
-  output += "<strong>Offences:</strong><br>";
+  var SN = 0;
   offences.forEach(offence => {
-    output += `<li>${offence.name}, Section: ${offence.section}, Fine: ${offence.fine}</li>`;
+  SN = SN +1;
+    modalContent+=`<tr>
+    <td>${SN}</td>
+    <td>${offence.name}</td>
+    <td>${offence.section}</td>
+    <td>${offence.warning}</td>
+    <td>${offence.courtApperance}</td>
+    <td>${offence.fine}</td>
+    </tr>`;
   });
 
-  document.getElementById("output").innerHTML = output;
+  modalContent += `</table><p>Total Fine: ${totalFine}</p>`;
+
+ document.getElementById("output").innerHTML = modalContent;
 });

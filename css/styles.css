@@ -61,6 +61,47 @@ header {
     cursor: pointer;
 }
 
+.error-message
+{
+    color:red;
+}
+
+.ticket-container {
+    max-width: 80%;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 50px solid #ccc;
+    border-radius: 5px;
+    display:flex; 
+    flex-direction:column; 
+    justify-content:center;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+  }
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  th {
+    background-color: #666;
+    color: white;
+  }
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  .total {
+    text-align: right;
+    font-weight: bold;
+  }
+
 /* Footer styles */
 footer {
     background-color: #4634e4;
