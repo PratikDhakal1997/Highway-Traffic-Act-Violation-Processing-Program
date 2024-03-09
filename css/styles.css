@@ -1,3 +1,19 @@
+/* Assignment 5&6
+CSD 2103	
+Front-End Web Development II
+2024-Winter
+
+Highway Traffic Act Violation Processing Program
+
+Group Members;
+- Pratik Dhakal - C0899291 
+- Dipendra Thapa - C0907555 
+- Mazlum Unay - C0885585 
+- Sudan Krishna Dhakal-C0901145 
+- Ashish Pandey - C0895988
+
+03/08/2024*/
+
 /* Reset default styles */
 * {
     margin: 0;
@@ -38,13 +54,14 @@ header {
     justify-content:center;
 }
 
+/* Label Style */
 .violation-form label {
     display: block;
     margin-bottom: 10px;
 }
 
-.violation-form input,
-.violation-form select {
+/* Style for input */
+.violation-form input{
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -61,11 +78,13 @@ header {
     cursor: pointer;
 }
 
+/* Error message style */
 .error-message
 {
     color:red;
 }
 
+/* Ticket container styles */
 .ticket-container {
     max-width: 80%;
     margin: auto;
@@ -78,50 +97,66 @@ header {
     justify-content:center;
 }
 
+/* Ticket header styles */
 .ticket-header {
     color: blue; /* Changing text color to blue */
     text-align: center; /* Center aligning the text */
     font-size: 24px; /* Adjust font size if needed */
     margin-bottom: 20px; /* Add some space below the header */
     font-weight: bold; /* Making the text bold */
-  }
+}
 
+/* Info container styles */
 .info-container {
     display: flex; /* Using flexbox for layout */
     justify-content: space-between; /* Distributing items evenly between left and right */
 }
 
+/* Left info style */
 .left-info {
     width: 50%; /* Setting width for left side */
-  }
-  .right-info {
+}
+
+/* Right info style */
+.right-info {
     text-align: right; /* Aligning content to the right */
     width: 50%; /* Setting width for right side */
-  }
+}
 
+/* Table styles */
 table {
     width: 100%;
     margin-top: 20px;
     border-collapse: collapse;
-  }
-  table, th, td {
+}
+
+/* Table cell styles */
+table, th, td {
     border: 1px solid #ddd;
-  }
-  th, td {
+}
+
+/* Header cell styles */
+th, td {
     text-align: left;
     padding: 8px;
-  }
-  th {
+}
+
+/* Header styles */
+th {
     background-color: #666;
     color: white;
-  }
-  tr:nth-child(even) {
+}
+
+/* Even row styles */
+tr:nth-child(even) {
     background-color: #f2f2f2;
-  }
-  .total {
+}
+
+/* Total style */
+.total {
     text-align: right;
     font-weight: bold;
-  }
+}
 
 /* Footer styles */
 footer {
@@ -133,6 +168,7 @@ footer {
     margin-bottom: 10px;
 }
 
+/* Footer link styles */
 footer a {
     color: white;
     margin-left: 10px;

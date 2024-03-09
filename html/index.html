@@ -1,3 +1,19 @@
+<!-- Assignment 5&6
+CSD 2103	
+Front-End Web Development II
+2024-Winter
+
+Highway Traffic Act Violation Processing Program
+
+Group Members;
+- Pratik Dhakal - C0899291 
+- Dipendra Thapa - C0907555 
+- Mazlum Unay - C0885585 
+- Sudan Krishna Dhakal-C0901145 
+- Ashish Pandey - C0895988
+
+03/08/2024 -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,40 +21,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Highway Traffic Act Violation Processing Program</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
-    
 </head>
 <body>
-
 <header>
+    <!-- Logo and title -->
     <img src="https://www.ontariocourts.ca/ocj/wp-content/uploads/2023/05/ocjlogo.png">
     <h1>Highway Traffic Act Violation Processing Program</h1>
 </header>
-
 <main>
-    
-    <form class="violation-form" id="trafficForm">
-         
+    <!-- Form for Driver Information submission -->
+    <form class="violation-form" id="trafficForm">        
+        <!-- Input field for driver's name -->
         <label for="driverName">Driver's Name:</label>
         <input type="text" id="driverName" name="driverName" required>
         <span id="errorDriverName" class="error-message"></span></br>
 
+        <!-- Input field for driver's license number -->
         <label for="licenseNumber">Driver's License Number:</label>
         <input type="text" id="licenseNumber" name="licenseNumber" required>
         <span id="errorlicenseNumber" class="error-message"></span></br>
 
         <button type="submit">Submit</button>
-
     </form>
+    <!-- Container for ticket details -->
     <div class="ticket-container" id="output" style="display: none;"></div>
 </main>
-
-<footer>
+<!-- Footer -->
+<footer>  
     &copy; Highway Traffic Act Violation Processing Program
     <a href="#">Privacy Policy</a>
     <a href="#">Contact Us</a>
 </footer>
+<!-- JavaScript file -->
 <script src="../js/myScript.js"></script>
 </body>
 </html>
