@@ -78,6 +78,27 @@ header {
     justify-content:center;
 }
 
+.ticket-header {
+    color: blue; /* Changing text color to blue */
+    text-align: center; /* Center aligning the text */
+    font-size: 24px; /* Adjust font size if needed */
+    margin-bottom: 20px; /* Add some space below the header */
+    font-weight: bold; /* Making the text bold */
+  }
+
+.info-container {
+    display: flex; /* Using flexbox for layout */
+    justify-content: space-between; /* Distributing items evenly between left and right */
+}
+
+.left-info {
+    width: 50%; /* Setting width for left side */
+  }
+  .right-info {
+    text-align: right; /* Aligning content to the right */
+    width: 50%; /* Setting width for right side */
+  }
+
 table {
     width: 100%;
     margin-top: 20px;

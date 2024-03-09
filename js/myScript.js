@@ -16,9 +16,12 @@ document.getElementById("trafficForm").addEventListener("submit", function(event
   const licenseNumber = document.getElementById("licenseNumber").value;
 
   //validation.
+
+
+
   // License Number Validation
   if (/^[0-9]{15}$/.test(licenseNumber) == false) {
-    document.getElementById("errorDriverName").innerHTML = "Please enter a valid 15-digit license number."; 
+    document.getElementById("errorlicenseNumber").innerHTML = "Please enter a valid 15-digit license number."; 
     return false;
 
   }
@@ -47,7 +50,7 @@ document.getElementById("trafficForm").addEventListener("submit", function(event
       courtApperance: "Yes"
     },
     {
-      name: "Invalid Liscence",
+      name: "Invalid License",
       section: "32(1)",
       fine: 260,
       warning: "-",
@@ -58,14 +61,14 @@ document.getElementById("trafficForm").addEventListener("submit", function(event
       section: "32(1)",
       fine: 260,
       warning: "-",
-      courtApperance: "Yes"
+      courtApperance: "No"
     },
     {
       name: "Invalid Insurance",
       section: "32(1)",
       fine: 175,
       warning: "-",
-      courtApperance: "Yes"
+      courtApperance: "No"
     }
     
   ];
@@ -88,9 +91,10 @@ document.getElementById("trafficForm").addEventListener("submit", function(event
 
   // Date and time
   const dateTime = new Date().toLocaleString();
+  const formattedDate = dateTime.replace(/[\/,: PM]/g, ''); // Removing / , and : characters
 
   // Generate ticket number (random number)
-  const ticketNumber = Math.floor(Math.random() * 10000);
+  const ticketNumber = formattedDate   + Math.floor(Math.random() * 100);
 
   // Calculate total fine
   let totalFine = 0;
@@ -98,11 +102,13 @@ document.getElementById("trafficForm").addEventListener("submit", function(event
         totalFine += offence.fine;
     });
   // output
-  let modalContent= `<h3>Ticket Info</h1>`;
-  modalContent += `<p>Driver Name: ${name}</p>`;
-  modalContent += `<p>Driver's License Number:: ${licenseNumber}</p>`;
-  modalContent += `<p>Date & time: ${dateTime}</p>`;
-  modalContent += `<p>Ticket Number:: ${ticketNumber}</p>`;
+  let modalContent= `<div class="ticket-header">Ticket Info</div><div class="info-container"><div class="left-info">`;
+  modalContent += `<p><strong>Driver Name:</Strong> ${name}</p>`;
+  modalContent += `<p><strong>Driver's License Number:</Strong> ${licenseNumber}</p></div>`;
+  modalContent += `<div class="right-info"><p><strong>Date & time:</Strong> ${dateTime}</p>`;
+  modalContent += `<p><strong>Ticket Number:</Strong> ${ticketNumber}</p></div>
+  </div>`;
+
   modalContent+= `<table><tr><th>S.N</th><th>Offence Name</th><th>Section Number</th>`+
                 `<th>Warning Status</th><th>Court Appearance</th><th>Fine Amount</th></tr>`;
 
@@ -119,7 +125,9 @@ document.getElementById("trafficForm").addEventListener("submit", function(event
     </tr>`;
   });
 
-  modalContent += `</table><p>Total Fine: ${totalFine}</p>`;
+
+
+  modalContent += `<tr><td colspan="5" class="total">Total Fine:</td><td> ${totalFine}</td></tr></table>`;
 
  document.getElementById("output").innerHTML = modalContent;
 });
